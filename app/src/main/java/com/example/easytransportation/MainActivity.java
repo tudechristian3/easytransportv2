@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         actionBar.hide();
 
         pref = getSharedPreferences("user_details", MODE_PRIVATE);
-        user = findViewById(R.id.editText3);
-        pass = findViewById(R.id.editText4);
-        btnLogin = findViewById(R.id.button);
-        txtregister =  findViewById(R.id.register);
+        user = findViewById(R.id.input_email);
+        pass = findViewById(R.id.input_password);
+        btnLogin = findViewById(R.id.btn_login);
+        txtregister =  findViewById(R.id.link_signup);
         //builder = new AlertDialog.Builder(this);
         btnLogin.setOnClickListener(this);
         txtregister.setOnClickListener(this);
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //editor.putString("cust_name", client_name);
                     editor.commit();
                     //Toast.makeText(getApplicationContext(), "Login Successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, Booking.class);
+                    Intent intent = new Intent(this, Dashboard.class);
                     startActivity(intent);
                     user.setText("");
                     pass.setText("");
