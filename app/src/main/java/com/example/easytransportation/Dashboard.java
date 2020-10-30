@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -28,7 +29,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Dashboard extends AppCompatActivity{
+public class Dashboard extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     GridView gv;
     SharedPreferences prf;
@@ -46,7 +47,7 @@ public class Dashboard extends AppCompatActivity{
         this.gv = findViewById(R.id.GridView12);
         this.adapter = new vehicleServiceAdapter(this, list);
         gv.setAdapter(adapter);
-        //gv.setOnItemClickListener(this);
+        gv.setOnItemClickListener(this);
 
         try{
             URL url = new URL("https://easytransportation.000webhostapp.com/android/get_vehicle");
@@ -77,5 +78,11 @@ public class Dashboard extends AppCompatActivity{
         }catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(this, Booking.class);
+        startActivityForResult(intent, 1);
     }
 }
