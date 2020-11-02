@@ -2,43 +2,136 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Booking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:background="#fefefe">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_textshadow"
-        android:id="@+id/etOrigin"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Enter origin address"
-        android:textColorHint="#d6d6d6"
-        android:textColorLink="#000000"
-        android:drawableLeft="@drawable/ic_action_location"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:textColor="#000000"
-        android:layout_marginBottom="20dp"/>
 
-    <EditText
-        android:id="@+id/etDestination"
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/logomain"
+        android:id="@+id/logoservice"/>
+
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:text="Vihicle Title here"-->
+<!--        android:textColor="#000000"-->
+<!--        android:layout_marginBottom="2dp"/>-->
+
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:textColor="#000000"
-        android:textColorHint="#d6d6d6"
-        android:textColorLink="#000000"
-        android:background="@drawable/rounded_textshadow"
-        android:drawableStart="@drawable/ic_action_destination"
-        android:drawableLeft="@drawable/ic_action_destination"
-        android:padding="10dp"
-        android:hint="Enter destination address" />
+        android:layout_marginBottom="-22dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/rounded_corners" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Vihicle Kilogram"
+            android:textColor="#000000"
+            android:layout_marginTop="-15dp"
+            android:layout_marginBottom="35dp"/>
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Quick Book-->
+
+        <Button
+            android:id="@+id/input_quickbook"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/roundercolorgreen"
+            android:text="Quick Book"
+            android:textColor="#fefefe"
+            android:elevation="100dp"/>
+
+        <!--Scheduled-->
+
+        <Button
+            android:id="@+id/scheduled"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/roundercolorgreen"
+            android:text="Schedule"
+            android:textColor="#fefefe"
+            android:elevation="100dp"/>
+
+        <Button
+            android:id="@+id/chartered"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/roundercolorgreen"
+            android:text="Chartered"
+            android:textColor="#fefefe"
+            android:elevation="100dp"/>
+
+    </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/place_text"
+       android:orientation="vertical"
+       android:layout_marginTop="10dp">
+
+       <EditText
+           android:id="@+id/etDestination"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:background="@drawable/rounded_textshadow"
+           android:drawableStart="@drawable/ic_action_destination"
+           android:drawableLeft="@drawable/ic_action_destination"
+           android:hint="Enter destination address"
+           android:padding="10dp"
+           android:textColor="#000000"
+           android:textColorHint="#d6d6d6"
+           android:textColorLink="#000000" />
+
+       <EditText
+           android:id="@+id/etOrigin"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="20dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginBottom="20dp"
+           android:background="@drawable/rounded_textshadow"
+           android:drawableLeft="@drawable/ic_action_location"
+           android:hint="Enter origin address"
+           android:padding="10dp"
+           android:textColor="#000000"
+           android:textColorHint="#d6d6d6"
+           android:textColorLink="#000000" />
+   </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,14 +174,12 @@
 
     </LinearLayout>
 
-
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Booking" />
+
 
 </LinearLayout>

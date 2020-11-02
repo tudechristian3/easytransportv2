@@ -1,4 +1,4 @@
-package com.example.easytransportation;
+    package com.example.easytransportation;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -82,7 +82,11 @@ public class Dashboard extends AppCompatActivity implements AdapterView.OnItemCl
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        vehicleServiceList selectedItem = list.get(position);
+        String image = selectedItem.getImage();
+        //Toast.makeText(this, image, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, Booking.class);
+        intent.putExtra("service_image", image);
         startActivityForResult(intent, 1);
     }
 }
