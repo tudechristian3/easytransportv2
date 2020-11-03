@@ -97,11 +97,17 @@ import java.util.List;
             if(v == button_location){
                 SharedPreferences.Editor editor=pref.edit();
                 String addressdeliver = txtAddressdeliver.getText().toString();
+                String image_service = getIntent().getStringExtra("service_image");
+                String service_price = getIntent().getStringExtra("service_price");
                 editor.putString("location_deliver", addressdeliver);
+                editor.putString("service_image", image_service);
+                editor.putString("service_price", service_price);
                 editor.commit();
 
                 Intent intent = new Intent(this, Booking.class);
                 intent.putExtra("location_deliver", addressdeliver);
+                intent.putExtra("service_image", image_service);
+                intent.putExtra("service_price", service_price);
                 startActivityForResult(intent, 1);
 
             }

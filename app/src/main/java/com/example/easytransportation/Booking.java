@@ -1,5 +1,7 @@
 package com.example.easytransportation;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -42,28 +44,35 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import Modules.DirectionFinder;
 import Modules.DirectionFinderListener;
 import Modules.Route;
 
-public class Booking extends FragmentActivity implements OnMapReadyCallback, DirectionFinderListener, View.OnClickListener {
+public class Booking extends AppCompatActivity implements OnMapReadyCallback, DirectionFinderListener, View.OnClickListener {
 
     private GoogleMap mMap;
     private Button btnFindPath;
     private Button btnQuickBook;
     private EditText etOrigin;
     private EditText etDestination;
+    private EditText etDestinationtext2;
+    private EditText etDestinationtext3;
+    private TextView kilogram;
     private TextView etDistance;
     private  TextView etTime;
-    private ImageView img;
+    private TextView etPrice;
+    private ImageView img, imageInsert,imageMinus;
     private Uri uriImage;
-    private LinearLayout pladestination;
+    private LinearLayout pladestination, destination2, destination3;
     private List<Marker> originMarkers = new ArrayList<>();
     private List<Marker> destinationMarkers = new ArrayList<>();
     private List<Polyline> polylinePaths = new ArrayList<>();
     String total;
     SharedPreferences prf;
     //private ProgressDialog progressDialog;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,26 +84,40 @@ public class Booking extends FragmentActivity implements OnMapReadyCallback, Dir
         mapFragment.getMapAsync(this);
         prf = getSharedPreferences("user_details", MODE_PRIVATE);
         String image_service = getIntent().getStringExtra("service_image");
+        String service_price = getIntent().getStringExtra("service_price");
+        String service_kilogram = getIntent().getStringExtra("service_kilogram");
         //String loc_deliver = getIntent().getStringExtra("location_deliver");
         String loc_deliver = prf.getString("location_deliver", "");
         String loc_address = prf.getString("location_pickup", "");
 //        Toast.makeText(getApplicationContext(), loc_address, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(getApplicationContext(), loc_deliver, Toast.LENGTH_SHORT).show();
         img = (ImageView) findViewById(R.id.logoservice);
+        imageInsert = (ImageView) findViewById(R.id.etDestinationInsert);
+        imageMinus = (ImageView) findViewById(R.id.etDestinationMinus);
         Bitmap bm  = getBitmapFromURL(image_service);
         img.setImageBitmap(bm);
         //img.setImageBitmap(BitmapFactory.decodeFile(image_service));
         pladestination = (LinearLayout) findViewById(R.id.place_text);
-        pladestination.setVisibility(View.GONE);
+        destination2 = (LinearLayout) findViewById(R.id.etDestinationInsert2);
+        destination3 = (LinearLayout) findViewById(R.id.etDestinationInsert3);
+        //pladestination.setVisibility(View.GONE);
         btnQuickBook = (Button) findViewById(R.id.input_quickbook);
         btnQuickBook.setOnClickListener(this);
         btnFindPath = (Button) findViewById(R.id.btnFindPath);
         etOrigin = (EditText) findViewById(R.id.etOrigin);
+        etPrice = (TextView) findViewById(R.id.price);
+        kilogram = (TextView) findViewById(R.id.kilogram);
         etDestination = (EditText) findViewById(R.id.etDestination);
+        etDestinationtext2 = (EditText) findViewById(R.id.etDestination2);
+        etDestinationtext3 = (EditText) findViewById(R.id.etDestination3);
+        destination2.setVisibility(View.GONE);
+        destination3.setVisibility(View.GONE);
         etDistance = (TextView) findViewById(R.id.tvDistance);
         etTime = (TextView) findViewById(R.id.tvDuration);
         etOrigin.setOnClickListener(this);
         etDestination.setOnClickListener(this);
+        imageInsert.setOnClickListener(this);
+        imageMinus.setOnClickListener(this);
         etOrigin.setFocusable(false);
         etDestination.setFocusable(false);
         Places.initialize(getApplicationContext(), "AIzaSyB8gc5JTXHOxtm-p8fpBBapv7fdpjgqHWQ");
@@ -107,7 +130,8 @@ public class Booking extends FragmentActivity implements OnMapReadyCallback, Dir
         });
         etOrigin.setText(loc_address);
         etDestination.setText(loc_deliver);
-
+        etPrice.setText(service_price);
+        kilogram.setText(service_kilogram);
 
     }
 
@@ -229,13 +253,17 @@ public class Booking extends FragmentActivity implements OnMapReadyCallback, Dir
 
     @Override
     public void onClick(View v) {
+        String image_service = getIntent().getStringExtra("service_image");
+        String service_price = getIntent().getStringExtra("service_price");
 
         if(v == etOrigin){
 //            List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS, Place.Field.LAT_LNG, Place.Field.NAME);
 //            Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList).build(Booking.this);
 //            startActivityForResult(intent, 100);
             Intent intent = new Intent(this, bookingcustomerdetails.class);
-            startActivity(intent);
+            intent.putExtra("service_image", image_service);
+            intent.putExtra("service_price", service_price);
+            startActivityForResult(intent, 1);
         }
 
        if(v == etDestination){
@@ -243,11 +271,19 @@ public class Booking extends FragmentActivity implements OnMapReadyCallback, Dir
 //            Intent intent2 = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,fieldList).build(Booking.this);
 //            startActivityForResult(intent2,99);
             Intent intent = new Intent(this, bookingcustomerdeliver.class);
-            startActivity(intent);
+            intent.putExtra("service_image", image_service);
+           intent.putExtra("service_price", service_price);
+            startActivityForResult(intent, 1);
         }
 
        if(v == btnQuickBook){
           pladestination.setVisibility(View.VISIBLE);
+       }
+
+       if(v == imageInsert){
+           destination2.setVisibility(View.VISIBLE);
+       }else if(v == imageMinus){
+           destination2.setVisibility(View.GONE);
        }
 
 

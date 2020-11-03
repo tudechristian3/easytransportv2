@@ -1,7 +1,10 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -39,6 +42,7 @@
         android:src="@drawable/rounded_corners" />
 
         <TextView
+            android:id="@+id/kilogram"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -72,7 +76,7 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:background="@drawable/roundercolorgreen"
             android:text="Schedule"
@@ -84,11 +88,13 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
             android:background="@drawable/roundercolorgreen"
             android:text="Chartered"
             android:textColor="#fefefe"
+            android:textSize="11dp"
             android:elevation="100dp"/>
 
     </LinearLayout>
@@ -100,36 +106,222 @@
        android:orientation="vertical"
        android:layout_marginTop="10dp">
 
-       <EditText
-           android:id="@+id/etDestination"
-           android:layout_width="match_parent"
-           android:layout_height="50dp"
-           android:layout_marginLeft="10dp"
-           android:layout_marginRight="10dp"
-           android:background="@drawable/rounded_textshadow"
-           android:drawableStart="@drawable/ic_action_destination"
-           android:drawableLeft="@drawable/ic_action_destination"
-           android:hint="Enter destination address"
-           android:padding="10dp"
-           android:textColor="#000000"
-           android:textColorHint="#d6d6d6"
-           android:textColorLink="#000000" />
+       <LinearLayout android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
 
-       <EditText
-           android:id="@+id/etOrigin"
-           android:layout_width="match_parent"
-           android:layout_height="50dp"
-           android:layout_marginLeft="10dp"
-           android:layout_marginTop="20dp"
-           android:layout_marginRight="10dp"
-           android:layout_marginBottom="20dp"
-           android:background="@drawable/rounded_textshadow"
-           android:drawableLeft="@drawable/ic_action_location"
-           android:hint="Enter origin address"
-           android:padding="10dp"
-           android:textColor="#000000"
-           android:textColorHint="#d6d6d6"
-           android:textColorLink="#000000" />
+           <EditText
+               android:id="@+id/etOrigin"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="20dp"
+               android:layout_marginRight="55dp"
+               android:layout_marginBottom="20dp"
+               android:background="@drawable/rounded_textshadow"
+               android:drawableLeft="@drawable/ic_action_location"
+               android:hint="Enter origin address"
+               android:padding="10dp"
+               android:textColor="#000000"
+               android:textColorHint="#A9A9A9"
+               android:textColorLink="#000000" />
+
+           <ImageView
+               android:id="@+id/etDestinationInsert"
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:layout_marginLeft="-40dp"
+               android:layout_marginTop="30dp"
+               android:layout_marginBottom="10dp"
+               android:src="@drawable/ic_action_add_text" />
+
+       </LinearLayout>
+
+       <LinearLayout android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+
+           <EditText
+               android:id="@+id/etDestination"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="20dp"
+               android:layout_marginRight="55dp"
+               android:layout_marginBottom="20dp"
+               android:background="@drawable/rounded_textshadow"
+               android:drawableLeft="@drawable/ic_action_destination"
+               android:hint="Enter Destination address"
+               android:padding="10dp"
+               android:textColor="#000000"
+               android:textColorHint="#A9A9A9"
+               android:textColorLink="#000000" />
+
+           <ImageView
+               android:id="@+id/etDestinationMinus"
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:layout_marginLeft="-40dp"
+               android:layout_marginTop="30dp"
+               android:layout_marginBottom="10dp"
+               android:src="@drawable/ic_action_minus_text" />
+
+       </LinearLayout>
+
+       <LinearLayout android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:id="@+id/etDestinationInsert2">
+
+
+           <EditText
+               android:id="@+id/etDestination2"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="20dp"
+               android:layout_marginRight="55dp"
+               android:layout_marginBottom="20dp"
+               android:background="@drawable/rounded_textshadow"
+               android:drawableLeft="@drawable/ic_action_destination"
+               android:hint="Enter Destination address"
+               android:padding="10dp"
+               android:textColor="#000000"
+               android:textColorHint="#A9A9A9"
+               android:textColorLink="#000000" />
+
+           <ImageView
+               android:id="@+id/etDestinationMinus2"
+
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:layout_marginLeft="-40dp"
+               android:layout_marginTop="30dp"
+               android:src="@drawable/ic_action_minus_text" />
+
+       </LinearLayout>
+
+       <LinearLayout android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:id="@+id/etDestinationInsert3">
+
+
+           <EditText
+               android:id="@+id/etDestination3"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="20dp"
+               android:layout_marginRight="55dp"
+               android:layout_marginBottom="20dp"
+               android:background="@drawable/rounded_textshadow"
+               android:drawableLeft="@drawable/ic_action_destination"
+               android:hint="Enter Destination address"
+               android:padding="10dp"
+               android:textColor="#000000"
+               android:textColorHint="#A9A9A9"
+               android:textColorLink="#000000" />
+
+           <ImageView
+               android:id="@+id/etDestinationMinus3"
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:layout_marginLeft="-40dp"
+               android:layout_marginTop="30dp"
+               android:src="@drawable/ic_action_minus_text" />
+
+       </LinearLayout>
+
+
+
+
+       <LinearLayout android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:text="Distance:"
+               android:padding="10dp"
+               android:textColor="#000000"
+               android:layout_marginTop="10dp"
+                />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:text="0 km"
+               android:textColor="#000000"
+               android:layout_marginTop="10dp"
+               android:id="@+id/tvDistance" />
+
+       </LinearLayout>
+
+       <LinearLayout android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:text="ETA:"
+               android:padding="10dp"
+               android:textColor="#000000"
+               android:layout_marginTop="10dp"
+               />
+
+           <TextView
+               android:layout_marginLeft="5dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="0 min"
+               android:textColor="#000000"
+               android:layout_marginTop="10dp"
+               android:id="@+id/tvDuration" />
+
+       </LinearLayout>
+
+       <LinearLayout android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:text="Price:"
+               android:padding="10dp"
+               android:textColor="#000000"
+               android:layout_marginTop="10dp"
+               />
+
+           <TextView
+               android:layout_marginLeft="5dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="₱"
+               android:textColor="#000000"
+               android:layout_marginTop="10dp" />
+
+           <TextView
+               android:layout_marginLeft="5dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="₱ 0"
+               android:textColor="#000000"
+               android:layout_marginTop="10dp"
+               android:id="@+id/price" />
+
+       </LinearLayout>
    </LinearLayout>
 
 
@@ -151,26 +343,9 @@
             android:textColor="#fefefe"
             android:layout_marginTop="10dp"/>
 
-        <TextView
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="0 km"
-            android:textColor="#000000"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvDistance" />
 
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0 min"
-            android:textColor="#000000"
 
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvDuration" />
 
     </LinearLayout>
 
@@ -183,3 +358,4 @@
 
 
 </LinearLayout>
+</ScrollView>

@@ -56,6 +56,9 @@ import java.util.List;
             txtAddress.setOnClickListener(this);
             button_location.setOnClickListener(this);
             pref = getSharedPreferences("user_details", MODE_PRIVATE);
+            String image_service = getIntent().getStringExtra("service_image");
+            String service_price = getIntent().getStringExtra("service_price");
+            //Toast.makeText(this, service_price, Toast.LENGTH_SHORT).show();
             Places.initialize(getApplicationContext(), "AIzaSyB8gc5JTXHOxtm-p8fpBBapv7fdpjgqHWQ");
 //            prf = getSharedPreferences("user_details", MODE_PRIVATE);
 //            this.gv = findViewById(R.id.GridView12);
@@ -103,8 +106,12 @@ import java.util.List;
         @Override
         public void onClick(View v) {
             SharedPreferences.Editor editor=pref.edit();
+            String image_service = getIntent().getStringExtra("service_image");
+            String service_price = getIntent().getStringExtra("service_price");
             String address = txtAddress.getText().toString();
             editor.putString("location_pickup", address);
+            editor.putString("service_image", image_service);
+            editor.putString("service_price", service_price);
             editor.commit();
 
 
@@ -117,6 +124,8 @@ import java.util.List;
             if(v == button_location){
                 Intent intent = new Intent(this, Booking.class);
                 intent.putExtra("location_pickup", address);
+                intent.putExtra("service_image", image_service);
+                intent.putExtra("service_price", service_price);
                 startActivityForResult(intent, 1);
 
             }

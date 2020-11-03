@@ -39,7 +39,9 @@
 
         <activity
             android:name=".Booking"
-            android:label="@string/title_activity_booking"></activity>
+            android:label="@string/title_activity_booking"
+
+            ></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -58,9 +60,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Dashboard" />
+        <activity android:name=".Dashboard"
+            android:label="@string/dashboard_title" />
         <activity android:name=".bookingcustomerdetails" />
-        <activity android:name=".bookingcustomerdeliver" />
+        <activity android:name=".bookingcustomerdeliver"
+            />
 
 
     </application>

@@ -67,7 +67,9 @@ public class Dashboard extends AppCompatActivity implements AdapterView.OnItemCl
                 String serv_name = item.getString("vehicle_name");
                 String serv_id = item.getString("vehicle_id");
                 String ServiceImage = item.getString("vehicle_image");
-                list.add(new vehicleServiceList(ServiceImage,serv_id,serv_name));
+                String ServicePrice = item.getString("vehicle_price");
+                String ServiceKilogram = item.getString("vehicle_size");
+                list.add(new vehicleServiceList(ServiceImage,serv_id,serv_name,ServicePrice,ServiceKilogram));
                 adapter.notifyDataSetChanged();
 
             }
@@ -84,9 +86,13 @@ public class Dashboard extends AppCompatActivity implements AdapterView.OnItemCl
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         vehicleServiceList selectedItem = list.get(position);
         String image = selectedItem.getImage();
+        String price = selectedItem.getPrice();
+        String kilogram = selectedItem.getKilogram();
         //Toast.makeText(this, image, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, Booking.class);
         intent.putExtra("service_image", image);
+        intent.putExtra("service_price", price);
+        intent.putExtra("service_kilogram", kilogram);
         startActivityForResult(intent, 1);
     }
 }
