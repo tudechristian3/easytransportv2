@@ -120,7 +120,7 @@ public class Booking extends AppCompatActivity implements OnMapReadyCallback, Di
         imageMinus.setOnClickListener(this);
         etOrigin.setFocusable(false);
         etDestination.setFocusable(false);
-        Places.initialize(getApplicationContext(), "AIzaSyB8gc5JTXHOxtm-p8fpBBapv7fdpjgqHWQ");
+        Places.initialize(getApplicationContext(), "AIzaSyA0HMLM6OShHBtLUMMCuqMSPpw-YNjt_BQ");
 
         btnFindPath.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -41,7 +41,7 @@ import java.util.List;
             txtAddressdeliver.setOnClickListener(this);
             button_location.setOnClickListener(this);
             pref = getSharedPreferences("user_details", MODE_PRIVATE);
-            Places.initialize(getApplicationContext(), "AIzaSyB8gc5JTXHOxtm-p8fpBBapv7fdpjgqHWQ");
+            Places.initialize(getApplicationContext(), "AIzaSyA0HMLM6OShHBtLUMMCuqMSPpw-YNjt_BQ");
 //            prf = getSharedPreferences("user_details", MODE_PRIVATE);
 //            this.gv = findViewById(R.id.GridView12);
 //            this.adapter = new vehicleServiceAdapter(this, list);
