@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.easytransportation.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.easytransportation.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.easytransportation.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+
+
+
+    <fragment
+        android:id="@+id/nav_book_now"
+        android:name="com.example.easytransportation.ui.book_now.BooknowFragment"
+        android:label="@string/menu_book_now"
+        tools:layout="@layout/fragment_book_now" />
+
+    <fragment
+        android:id="@+id/nav_on_going"
+        android:name="com.example.easytransportation.ui.on_going.OngoingFragment"
+        android:label="@string/menu_on_going"
+        tools:layout="@layout/fragment_on_going" />
+
+    <fragment
+        android:id="@+id/nav_completed"
+        android:name="com.example.easytransportation.ui.completed.CompletedFragment"
+        android:label="@string/menu_completed"
+        tools:layout="@layout/fragment_completed" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.easytransportation.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+
+</navigation>

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -80,6 +81,12 @@ public class Dashboard extends AppCompatActivity implements AdapterView.OnItemCl
         }catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_menu_drawer,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

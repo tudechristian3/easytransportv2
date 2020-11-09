@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
 
     tools:context=".LoadingScreen"
-    android:background="#1CC641">
+    android:background="#1C9CEA">
 
     <LinearLayout
         android:orientation="vertical"
@@ -22,9 +22,8 @@
             android:layout_gravity="center_horizontal" />
 
         <ImageView android:src="@drawable/logotext2"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="280dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal" />
 
 
